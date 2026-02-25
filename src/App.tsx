@@ -9,7 +9,7 @@
  */
 
 import { motion, AnimatePresence } from "motion/react";
-import { Instagram, Heart, Calendar, User, MessageSquare, Star, ChevronLeft, ChevronRight, CheckCircle, Mail, MapPin, Clock, Info, ShoppingBag, Sparkles } from "lucide-react";
+import { Instagram, Heart, Calendar, User, MessageSquare, Star, ChevronLeft, ChevronRight, CheckCircle, Mail, MapPin, Clock, Info, ShoppingBag, Sparkles, Menu, X } from "lucide-react";
 import React, { useState, useEffect } from "react";
 
 export default function App() {
@@ -33,6 +33,7 @@ export default function App() {
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [currentReview, setCurrentReview] = useState(0);
   const [formStep, setFormStep] = useState(1);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleNext = () => {
     if (formStep === 1) {
@@ -129,12 +130,45 @@ export default function App() {
             href="https://instagram.com/zakilobakes"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 hover:bg-beige rounded-full transition-colors"
+            className="hidden md:flex p-2 hover:bg-beige rounded-full transition-colors"
           >
             <Instagram size={20} />
           </a>
+          <button
+            className="md:hidden p-2 hover:bg-beige rounded-full transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} className="text-chocolate" /> : <Menu size={24} className="text-chocolate" />}
+          </button>
         </div>
       </nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed top-[68px] left-0 w-full bg-vanilla/95 backdrop-blur-md z-40 border-b border-beige/50 py-6 px-6 flex flex-col gap-6 shadow-soft md:hidden"
+          >
+            <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-lg font-bold text-chocolate uppercase tracking-widest hover:text-sage transition-colors">The Baker</a>
+            <a href="#menu" onClick={() => setIsMenuOpen(false)} className="text-lg font-bold text-chocolate uppercase tracking-widest hover:text-sage transition-colors">Menu</a>
+            <a href="#catering" onClick={() => setIsMenuOpen(false)} className="text-lg font-bold text-chocolate uppercase tracking-widest hover:text-sage transition-colors">Catering</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-lg font-bold text-chocolate uppercase tracking-widest hover:text-sage transition-colors">Order</a>
+            <div className="w-full h-px bg-beige/50 my-2"></div>
+            <a
+              href="https://instagram.com/zakilobakes"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center gap-3 text-lg font-bold text-chocolate uppercase tracking-widest hover:text-sage transition-colors"
+            >
+              <Instagram size={20} /> Instagram
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex items-center pt-24 md:pt-20 overflow-hidden">
