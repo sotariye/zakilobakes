@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Quicksand", sans-serif;
+  --font-handwritten: "Caveat", cursive;
+  --color-chocolate: #3d2b1f;
+  --color-vanilla: #fff9f2;
+  --color-beige: #f5e6d3;
+  --color-frosting-pink: #e8d5d5;
+  --color-sage: #a3b18a;
+}
+
+@layer base {
+  body {
+    @apply bg-vanilla text-chocolate font-sans antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-handwritten;
+  }
+}
+
+.textured-bg {
+  background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+}
+
+.shadow-soft {
+  box-shadow: 0 10px 30px -10px rgba(61, 43, 31, 0.1);
+}
+
+.input-field {
+  @apply w-full bg-white border border-beige rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-frosting-pink transition-all;
+}
