@@ -149,6 +149,30 @@ export default function App() {
               <span className="text-sage italic">Baked with Heart</span> <br />
               in Toronto.
             </h1>
+
+            {/* Mobile Hero Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="relative block lg:hidden w-full mb-8 mt-2"
+            >
+              <div className="absolute -top-6 -right-2 w-24 h-24 bg-frosting-pink rounded-full -z-10 blur-2xl opacity-50"></div>
+              <div className="rounded-[2rem] overflow-hidden shadow-soft border-4 border-white relative z-0">
+                <img
+                  src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=800"
+                  alt="Close up of cake texture"
+                  className="w-full h-[280px] sm:h-[350px] object-cover hover:scale-105 transition-transform duration-1000"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="absolute -bottom-4 -left-2 bg-white p-4 rounded-2xl shadow-soft border border-beige max-w-[150px] z-10">
+                <div className="flex gap-1 mb-1 5">
+                  {[1, 2, 3, 4, 5].map(i => <Star key={i} size={12} className="fill-chocolate text-chocolate" />)}
+                </div>
+                <p className="text-[10px] font-bold italic">"The best chocolate cake in the city, hands down."</p>
+              </div>
+            </motion.div>
             <p className="text-lg md:text-xl text-chocolate/80 mb-10 max-w-lg leading-relaxed font-medium">
               Celebrate your special moments with treats that taste as real as they look.
             </p>
@@ -176,7 +200,7 @@ export default function App() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative"
+            className="relative hidden lg:block"
           >
             <div className="absolute -top-10 -right-4 md:-right-10 w-32 h-32 bg-frosting-pink rounded-full -z-10 blur-3xl opacity-50"></div>
             <div className="rounded-[2.5rem] overflow-hidden shadow-soft border-8 border-white">
