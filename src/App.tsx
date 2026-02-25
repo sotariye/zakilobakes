@@ -114,10 +114,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen selection:bg-frosting-pink selection:text-chocolate textured-bg">
+    <div className="min-h-screen selection:bg-frosting-pink selection:text-chocolate textured-bg flex flex-col overflow-x-hidden">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-vanilla/80 backdrop-blur-sm border-b border-beige/50">
-        <div className="text-3xl font-handwritten font-bold text-chocolate">Zakilo Bakes</div>
+      <nav className="fixed top-0 w-full z-50 px-5 md:px-6 py-4 flex justify-between items-center bg-vanilla/80 backdrop-blur-sm border-b border-beige/50">
+        <div className="text-2xl md:text-3xl font-handwritten font-bold text-chocolate">Zakilo Bakes</div>
         <div className="hidden md:flex gap-8 text-sm font-medium uppercase tracking-widest">
           <a href="#about" className="hover:text-sage transition-colors">The Baker</a>
           <a href="#menu" className="hover:text-sage transition-colors">Menu</a>
@@ -137,27 +137,27 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+      <section className="relative min-h-[100svh] flex items-center pt-24 md:pt-20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-5 md:px-6 grid lg:grid-cols-2 gap-10 md:gap-12 items-center w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="z-10"
+            className="z-10 mt-8 md:mt-0"
           >
-            <h1 className="text-6xl md:text-8xl mb-6 leading-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-8xl mb-6 leading-tight">
               <span className="text-sage italic">Baked with Heart</span> <br />
               in Toronto.
             </h1>
-            <p className="text-xl text-chocolate/80 mb-10 max-w-lg leading-relaxed font-medium">
+            <p className="text-lg md:text-xl text-chocolate/80 mb-10 max-w-lg leading-relaxed font-medium">
               Celebrate your special moments with treats that taste as real as they look.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 w-full">
               <motion.a
                 href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-block px-10 py-5 bg-chocolate text-vanilla rounded-2xl font-bold text-lg shadow-soft hover:bg-chocolate/90 transition-all"
+                className="w-full sm:w-auto text-center px-8 md:px-10 py-5 bg-chocolate text-vanilla rounded-2xl font-bold text-lg shadow-soft hover:bg-chocolate/90 transition-all"
               >
                 Order Your Cake
               </motion.a>
@@ -165,7 +165,7 @@ export default function App() {
                 href="#menu"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-block px-10 py-5 bg-white text-chocolate border border-beige rounded-2xl font-bold text-lg shadow-soft hover:bg-beige/20 transition-all"
+                className="w-full sm:w-auto text-center px-8 md:px-10 py-5 bg-white text-chocolate border border-beige rounded-2xl font-bold text-lg shadow-soft hover:bg-beige/20 transition-all"
               >
                 View Menu
               </motion.a>
@@ -178,42 +178,42 @@ export default function App() {
             transition={{ duration: 1 }}
             className="relative"
           >
-            <div className="absolute -top-10 -right-10 w-32 h-32 bg-frosting-pink rounded-full -z-10 blur-3xl opacity-50"></div>
+            <div className="absolute -top-10 -right-4 md:-right-10 w-32 h-32 bg-frosting-pink rounded-full -z-10 blur-3xl opacity-50"></div>
             <div className="rounded-[2.5rem] overflow-hidden shadow-soft border-8 border-white">
               <img
                 src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=1200"
                 alt="Close up of cake texture"
-                className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-1000"
+                className="w-full h-[350px] md:h-[600px] object-cover hover:scale-105 transition-transform duration-1000"
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-soft border border-beige max-w-[200px]">
+            <div className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-6 bg-white p-5 md:p-6 rounded-2xl md:rounded-3xl shadow-soft border border-beige max-w-[170px] md:max-w-[200px]">
               <div className="flex gap-1 mb-2">
                 {[1, 2, 3, 4, 5].map(i => <Star key={i} size={14} className="fill-chocolate text-chocolate" />)}
               </div>
-              <p className="text-xs font-bold italic">"The best chocolate cake in the city, hands down."</p>
+              <p className="text-[10px] md:text-xs font-bold italic">"The best chocolate cake in the city, hands down."</p>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* About the Baker */}
-      <section id="about" className="py-24 px-6 bg-beige/30">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div className="order-2 md:order-1">
+      <section id="about" className="py-16 md:py-24 px-5 md:px-6 bg-beige/30">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center w-full">
+          <div className="order-2 md:order-1 pt-4 md:pt-0">
             <div className="rounded-[2rem] overflow-hidden shadow-soft rotate-[-2deg] border-4 border-white">
               <img
                 src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800"
                 alt="Omaina Ozako decorating a cake"
-                className="w-full h-[500px] object-cover"
+                className="w-full h-[350px] md:h-[500px] object-cover"
                 referrerPolicy="no-referrer"
               />
             </div>
           </div>
-          <div className="order-1 md:order-2">
+          <div className="order-1 md:order-2 text-center md:text-left">
             <span className="text-sage font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Meet Omaina Ozako</span>
-            <h2 className="text-5xl md:text-6xl mb-8">The baker behind <br /> the apron</h2>
-            <div className="space-y-6 text-lg leading-relaxed text-chocolate/80">
+            <h2 className="text-4xl md:text-6xl mb-6 md:mb-8">The baker behind <br className="hidden md:block" /> the apron</h2>
+            <div className="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed text-chocolate/80 text-left">
               <p>
                 Hi there, 👋🏾
               </p>
@@ -238,16 +238,16 @@ export default function App() {
       </section>
 
       {/* Menu Section */}
-      <section id="menu" className="py-24 px-6">
+      <section id="menu" className="py-16 md:py-24 px-5 md:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-7xl mb-4">Dessert Menu</h2>
-            <p className="text-lg text-chocolate/60 max-w-2xl mx-auto italic">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-4xl md:text-7xl mb-4">Dessert Menu</h2>
+            <p className="text-base md:text-lg text-chocolate/60 max-w-2xl mx-auto italic">
               Gluten-free and vegan options available ✨ Items priced per dozen
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {menuCategories.map((cat, i) => (
               <motion.div
                 key={cat.title}
@@ -267,10 +267,10 @@ export default function App() {
             ))}
           </div>
 
-          <div className="mt-16 bg-frosting-pink/10 p-12 rounded-[3rem] border border-frosting-pink/20">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="mt-12 md:mt-16 bg-frosting-pink/10 p-8 md:p-12 rounded-3xl md:rounded-[3rem] border border-frosting-pink/20">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div>
-                <h3 className="text-4xl mb-4">Cupcake Menu</h3>
+                <h3 className="text-3xl md:text-4xl mb-4">Cupcake Menu</h3>
                 <p className="text-chocolate/70 mb-6">Mix and match cupcake and frosting flavors for a unique creation.</p>
                 <div className="space-y-4">
                   <div className="flex justify-between border-b border-beige pb-2">
@@ -303,17 +303,17 @@ export default function App() {
       </section>
 
       {/* Catering Section */}
-      <section id="catering" className="py-24 px-6 bg-chocolate text-vanilla">
+      <section id="catering" className="py-16 md:py-24 px-5 md:px-6 bg-chocolate text-vanilla">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-frosting-pink font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Event Services</span>
-            <h2 className="text-5xl md:text-7xl mb-4">Dessert Catering Packages</h2>
-            <p className="opacity-70 max-w-2xl mx-auto">Choose your dessert experience - from curated minis to fully customized spreads.</p>
+          <div className="text-center mb-10 md:mb-16">
+            <span className="text-frosting-pink font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4 block">Event Services</span>
+            <h2 className="text-4xl md:text-7xl mb-4 leading-tight">Dessert Catering Packages</h2>
+            <p className="opacity-70 max-w-2xl mx-auto text-sm md:text-base">Choose your dessert experience - from curated minis to fully customized spreads.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-white/5 p-10 rounded-[3rem] border border-white/10">
-              <h3 className="text-4xl mb-6 text-frosting-pink">Signature Package</h3>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+            <div className="bg-white/5 p-8 md:p-10 rounded-3xl md:rounded-[3rem] border border-white/10">
+              <h3 className="text-2xl md:text-4xl mb-4 md:mb-6 text-frosting-pink">Signature Package</h3>
               <p className="mb-8 opacity-80">A curated selection of our most-loved desserts. Perfect for events that want a mix of flavors without the stress.</p>
               <ul className="space-y-4 mb-10">
                 <li className="flex items-center gap-3"><CheckCircle size={18} className="text-sage" /> Starting at $300</li>
@@ -325,8 +325,8 @@ export default function App() {
               </a>
             </div>
 
-            <div className="bg-white/5 p-10 rounded-[3rem] border border-white/10">
-              <h3 className="text-4xl mb-6 text-frosting-pink">Custom Package</h3>
+            <div className="bg-white/5 p-8 md:p-10 rounded-3xl md:rounded-[3rem] border border-white/10">
+              <h3 className="text-2xl md:text-4xl mb-4 md:mb-6 text-frosting-pink">Custom Package</h3>
               <p className="mb-8 opacity-80">For when you want a dessert spread crafted around your unique vision. Tailored to your theme, flavours and event concept.</p>
               <ul className="space-y-4 mb-10">
                 <li className="flex items-center gap-3"><CheckCircle size={18} className="text-sage" /> Personalized menu & flavor consultation</li>
@@ -342,11 +342,11 @@ export default function App() {
       </section>
 
       {/* Mailing List Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto bg-sage text-vanilla rounded-[4rem] p-12 md:p-20 text-center relative overflow-hidden shadow-soft">
+      <section className="py-16 md:py-24 px-5 md:px-6">
+        <div className="max-w-4xl mx-auto bg-sage text-vanilla rounded-3xl md:rounded-[4rem] p-8 md:p-20 text-center relative overflow-hidden shadow-soft">
           <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-            <div className="absolute -top-20 -left-20 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+            <div className="absolute -top-10 -left-10 md:-top-20 md:-left-20 w-48 h-48 md:w-64 md:h-64 bg-white rounded-full blur-2xl md:blur-3xl"></div>
+            <div className="absolute -bottom-10 -right-10 md:-bottom-20 md:-right-20 w-48 h-48 md:w-64 md:h-64 bg-white rounded-full blur-2xl md:blur-3xl"></div>
           </div>
 
           <motion.div
@@ -355,11 +355,11 @@ export default function App() {
             viewport={{ once: true }}
             className="relative z-10"
           >
-            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-8">
-              <Mail size={32} />
+            <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8">
+              <Mail className="w-6 h-6 md:w-8 md:h-8" />
             </div>
-            <h2 className="text-4xl md:text-6xl mb-6">Sweet Reflections</h2>
-            <p className="text-lg opacity-90 mb-10 max-w-xl mx-auto">
+            <h2 className="text-3xl md:text-6xl mb-4 md:mb-6 leading-tight">Sweet Reflections</h2>
+            <p className="text-sm md:text-lg opacity-90 mb-8 md:mb-10 max-w-xl mx-auto leading-relaxed">
               Subscribe to get first dibs on seasonal treat boxes, secret menu drops, and baking tips from Omaina's kitchen.
             </p>
 
@@ -394,11 +394,11 @@ export default function App() {
       </section>
 
       {/* How to Order & Policies */}
-      <section className="py-24 px-6 bg-beige/20">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
-          <div>
-            <h2 className="text-5xl mb-10">How to Order</h2>
-            <div className="space-y-8">
+      <section className="py-16 md:py-24 px-5 md:px-6 bg-beige/20 text-chocolate">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 md:gap-16">
+          <div className="order-2 lg:order-1">
+            <h2 className="text-4xl md:text-5xl mb-8 md:mb-10">How to Order</h2>
+            <div className="space-y-6 md:space-y-8">
               {[
                 { step: "1", title: "Choose your service", desc: "Classic Menu for treat boxes or Dessert Catering for full event spreads." },
                 { step: "2", title: "Fill out the form", desc: "Use the inquiry form below to share your vision, date, and flavor preferences." },
@@ -418,9 +418,9 @@ export default function App() {
             </div>
           </div>
 
-          <div className="bg-white p-10 rounded-[3rem] shadow-soft border border-beige">
-            <h2 className="text-4xl mb-8 flex items-center gap-3">
-              <Info className="text-sage" /> Policies
+          <div className="order-1 lg:order-2 bg-white p-8 md:p-10 rounded-3xl md:rounded-[3rem] shadow-soft border border-beige">
+            <h2 className="text-3xl md:text-4xl mb-6 md:mb-8 flex items-center gap-3">
+              <Info className="text-sage w-6 h-6 md:w-8 md:h-8" /> Policies
             </h2>
             <div className="p-4 bg-sage/5 rounded-xl border border-sage/10 mb-8">
               <p className="italic text-sage">To make your dessert experience smooth and stress-free, please review our ordering policies.</p>
@@ -444,7 +444,7 @@ export default function App() {
       </section>
 
       {/* Social Proof */}
-      <section className="py-24 px-6 bg-chocolate text-vanilla overflow-hidden relative">
+      <section className="py-16 md:py-24 px-5 md:px-6 bg-chocolate text-vanilla overflow-hidden relative">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <MessageSquare className="mx-auto mb-8 opacity-50" size={40} />
           <div className="relative h-[200px] flex items-center justify-center">
@@ -455,9 +455,9 @@ export default function App() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.1 }}
                 transition={{ duration: 0.5 }}
-                className="absolute w-full"
+                className="absolute w-full px-4"
               >
-                <p className="text-2xl md:text-4xl font-handwritten leading-relaxed mb-8">
+                <p className="text-xl md:text-4xl font-handwritten leading-relaxed mb-6 md:mb-8">
                   "{reviews[currentReview].text}"
                 </p>
                 <p className="text-sm uppercase tracking-widest font-bold opacity-60">
@@ -480,11 +480,11 @@ export default function App() {
       </section>
 
       {/* Footer / Contact */}
-      <section id="contact" className="py-24 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
+      <section id="contact" className="py-16 md:py-24 px-5 md:px-6">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 md:gap-16">
           <div>
-            <h2 className="text-5xl md:text-7xl mb-6">Let's bake something <span className="italic text-sage">beautiful.</span></h2>
-            <p className="text-xl text-chocolate/70 mb-10 leading-relaxed">
+            <h2 className="text-4xl md:text-7xl mb-4 md:mb-6 leading-tight">Let's bake something <br /><span className="italic text-sage">beautiful.</span></h2>
+            <p className="text-lg md:text-xl text-chocolate/70 mb-8 md:mb-10 leading-relaxed">
               Whether it's a milestone birthday or a "just because" treat, I'd love to be a part of your story. Fill out the form and I'll get back to you personally.
             </p>
 
@@ -522,7 +522,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="bg-white p-10 rounded-[3rem] shadow-soft border border-beige relative overflow-hidden">
+          <div className="bg-white p-6 md:p-10 rounded-3xl md:rounded-[3rem] shadow-soft border border-beige relative overflow-hidden">
             {/* Progress Bar */}
             <div className="absolute top-0 left-0 w-full h-2 bg-beige">
               <div
